@@ -1,0 +1,25 @@
+{
+  "auth": "zef:sdondley",
+  "authors": [
+    "Steve Dondley"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Generates modifcation configuration files for the Karabiner Elemens app on macOS",
+  "license": "Artistic-2.0",
+  "name": "Karabiner::ModGenerator",
+  "perl": "6.d",
+  "provides": {
+    "Karabiner::ModGenerator": "lib/Karabiner/ModGenerator.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

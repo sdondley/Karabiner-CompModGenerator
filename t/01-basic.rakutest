@@ -1,0 +1,6 @@
+use Test;
+use Karabiner::ModGenerator;
+
+pass "replace me";
+
+done-testing;

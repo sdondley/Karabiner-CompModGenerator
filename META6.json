@@ -7,12 +7,12 @@
   ],
   "depends": [
   ],
-  "description": "Generates modifcation configuration files for the Karabiner Elemens app on macOS",
+  "description": "Generates complext modifcations for the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS",
   "license": "Artistic-2.0",
-  "name": "Karabiner::ModGenerator",
+  "name": "Karabiner::CompModGenerator",
   "perl": "6.d",
   "provides": {
-    "Karabiner::ModGenerator": "lib/Karabiner/ModGenerator.rakumod"
+    "Karabiner::CompModGenerator": "lib/Karabiner/CompModGenerator.rakumod"
   },
   "resources": [
   ],

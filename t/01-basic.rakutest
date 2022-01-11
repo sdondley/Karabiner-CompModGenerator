@@ -1,5 +1,5 @@
 use Test;
-use Karabiner::ModGenerator;
+use Karabiner::CompModGenerator;
 
 pass "replace me";
 

@@ -1,19 +1,19 @@
 NAME
 ====
 
-Karabiner::ModGenerator - blah blah blah
+Karabiner::CompModGenerator - Generates modifcation json files for the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS
 
 SYNOPSIS
 ========
 
 ```raku
-use Karabiner::ModGenerator;
+use Karabiner::CompModGenerator;
 ```
 
 DESCRIPTION
 ===========
 
-Karabiner::ModGenerator is ...
+Karabiner::CompModGenerator is ...
 
 AUTHOR
 ======

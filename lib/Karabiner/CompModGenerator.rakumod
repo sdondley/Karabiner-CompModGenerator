@@ -1,23 +1,24 @@
-unit class Karabiner::ModGenerator;
+unit class Karabiner::CompModGenerator;
+use Mac::Applications::List;
 
 
 =begin pod
 
 =head1 NAME
 
-Karabiner::ModGenerator - blah blah blah
+Karabiner::CompModGenerator - Generate complex modifcations for the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS
 
 =head1 SYNOPSIS
 
 =begin code :lang<raku>
 
-use Karabiner::ModGenerator;
+use Karabiner::CompModGenerator;
 
 =end code
 
 =head1 DESCRIPTION
 
-Karabiner::ModGenerator is ...
+Karabiner::CompModGenerator is ...
 
 =head1 AUTHOR
 

@@ -1,7 +1,7 @@
 NAME
 ====
 
-Karabiner::CompModGenerator - Generates modifcation json files for the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS
+Karabiner::CompModGenerator - Generate complex modifcations for the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS
 
 SYNOPSIS
 ========

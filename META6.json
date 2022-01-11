@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "Generates complext modifcations for the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS",
+  "description": "Generate complex modifcations for the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS",
   "license": "Artistic-2.0",
   "name": "Karabiner::CompModGenerator",
   "perl": "6.d",

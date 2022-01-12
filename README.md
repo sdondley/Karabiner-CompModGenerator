@@ -30,24 +30,26 @@ USAGE
 
 There are a few easy steps to generating the complex modification files:
 
-  * write the configuration file
+  * 1. write the configuration file
 
-    * run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
+  * 2. run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
 
-      * install the json file into Karabiner-Elements configuration directory
+  * 3. install the json file into Karabiner-Elements configuration directory
 
-        * open Karabiner-Elements and load the new rules
+  * 4. open Karabiner-Elements and load the new rules
 
 The json file created by the command in step 2 above will be saved to the same directory your the command from with the same base file name as your configuration file but with a '.json' file extension. Place this file into your Karbiner-Elements configuration directory. By default, this directory is at `~/.config/Karabiner/assets/complex_modifications`. Now you can open Karabiner-Elements and do the following:
 
-  * click the "Complex Modifications" tab
+  * 1. click the "Complex Modifications" tab
 
-    * click the "Add rule" button
+  * 2. click the "Add rule" button
 
-      * click "Enable" for all the rules or individual rules you wish to use
+  * 3. click "Enable" for all the rules or individual rules you wish to use
 
-Writing a configuration file A configuration is just a simple text file that provides text strings to be inserted into the templates. You cna use any text editor to create the configurations.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Writing a configuration file
+----------------------------
+
+A configuration is just a simple text file that provides text strings to be inserted into the templates. You cna use any text editor to create the configurations.
 
 Here is a sample configuration file:
 

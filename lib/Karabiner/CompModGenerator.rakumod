@@ -112,11 +112,11 @@ Follow the L<USAGE> instructions below for more details.
 
 There are a few easy steps to generating the complex modification files:
 
-=item1 write the configuration file
-=item2 run the C<kcmg> command, followed by the name of your configuration
+=item 1. write the configuration file
+=item 2. run the C<kcmg> command, followed by the name of your configuration
 file, to create the json file containing the modifications
-=item3 install the json file into Karabiner-Elements configuration directory
-=item4 open Karabiner-Elements and load the new rules
+=item 3. install the json file into Karabiner-Elements configuration directory
+=item 4. open Karabiner-Elements and load the new rules
 
 The json file created by the command in step 2 above will be saved to the same
 directory your the command from with the same base file name as your
@@ -125,11 +125,12 @@ Karbiner-Elements configuration directory. By default, this directory is at
 C<~/.config/Karabiner/assets/complex_modifications>. Now you can open 
 Karabiner-Elements and do the following:
 
-=item1 click the "Complex Modifications" tab
-=item2 click the "Add rule" button
-=item3 click "Enable" for all the rules or individual rules you wish to use
+=item 1. click the "Complex Modifications" tab
+=item 2. click the "Add rule" button
+=item 3. click "Enable" for all the rules or individual rules you wish to use
 
 =head2 Writing a configuration file
+
 A configuration is just a simple text file that provides text strings to be
 inserted into the templates. You cna use any text editor to create the
 configurations.

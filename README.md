@@ -9,7 +9,7 @@ SYNOPSIS
 From the command line:
 
 ```raku
-kcmg your_template_file
+kcmg you_config_file.txt
 ```
 
 DESCRIPTION
@@ -17,29 +17,77 @@ DESCRIPTION
 
 This module generates json files containing complex modifications for use with the the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS.
 
-The module makes it exceedingly easy to create and update useful complex modifications. The modification files are generated from templates, so the modifications you can generate are limited by those provided by the templates which currently include:
+The module makes it exceedingly easy to create and update useful complex modifications. The modification files are generated from templates, so the modifications you can generate are limited by the templates provided by the module, which currently include:
 
 * opening/activiating applications with a modifier key and a double or triple tap of another key
 
-More templates will be added in the future.
+More templates will be added in the future as well as a way to create plugins for this module for adding additional templates.
 
-There are two steps to generating the complex modification files:
+Follow the [USAGE](USAGE) instructions below for more details.
 
-1. set up a configuration file 2. run a command to create the json file containing the modifications
+USAGE
+=====
+
+There are a few easy steps to generating the complex modification files:
+
+  * write the configuration file
+
+    * run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
+
+      * install the json file into Karabiner-Elements configuration directory
+
+        * open Karabiner-Elements and load the new rules
+
+The json file created by the command in step 2 above will be saved to the same directory your the command from with the same base file name as your configuration file but with a '.json' file extension. Place this file into your Karbiner-Elements configuration directory. By default, this directory is at `~/.config/Karabiner/assets/complex_modifications`. Now you can open Karabiner-Elements and do the following:
+
+  * click the "Complex Modifications" tab
+
+    * click the "Add rule" button
+
+      * click "Enable" for all the rules or individual rules you wish to use
+
+Writing a configuration file A configuration is just a simple text file that provides text strings to be inserted into the templates. You cna use any text editor to create the configurations.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Here is a sample configuration file:
+
+    # lines that begin with the '#' character are ignore
+    # first app name,second app name (optional),key,modifier (optional)
+    Adobe Photoshop 2021,Preview,p,command
+    zoom.us,z,option
+
+The first two lines that begin with the '#' sign are are comments and are ignored.
+
+The next two lines create the following three shortcuts:
+
+  * assigns ⌘-p-p (hold down command key and double tap "p") to open Adobe Photoshop
+
+  * assigns ⌘-p-p-p (hold down command key and triple tap "z")to open Preview
+
+  * assigns ⌘-z-z (hold down command key and double tap "z") to open Zoom
+
+Notice the second app name is optional. If only one app name is provided, only one shortcut (double tap) will be generated. If two app names are provided, the first app is assigned to the double tap shortcut and the second app is assigned to the triple tap shortcut.
+
+The "modifier" argument is also optional. It not provided, it defaults to the "command" key.
+
+**IMPORTANT: **Ensure no spaces exists before and after commas.
 
 INSTALLATION
 ============
 
-First, install Raku by following the instructions here:
+If you don't have Raku installed, it's easiest to install with homebrew if you already have brew installed:
 
-Now install the module with: `zef install Karabiner::CompModGenerator`
+`brew install rakudo-star`
 
-Follow the [USAGE](USAGE) instructions below to learn how to generate files.
+If you don't have brew installed, install it with:
 
-USAGE
------
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-The first step is create a template file. The format for the template files can be found...
+For other options for installing Raku, see [read this page.](https://course.raku.org/essentials/how-to-install-rakudo/). Whatever way you choose, just be sure the `zef` command is installed on your machine as well.
+
+Once Raku is installed, install the module with: `zef install Karabiner::CompModGenerator`
+
+Now follow the [USAGE](USAGE) instructions below to learn how to generate files.
 
 AUTHOR
 ======

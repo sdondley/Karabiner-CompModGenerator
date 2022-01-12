@@ -1,0 +1,98 @@
+    { "description": "<%=$app1%>/<%=$app2%>, Double/Triple tap cmd-<%=$key%>",
+      "manipulators": [
+        {
+            "type": "basic",
+            "conditions": [
+                {
+                  "type": "variable_if",
+                  "name": "k<%=$mod%> pressed",
+                  "value": 2
+                }
+            ],
+            "from": {
+              "key_code": "<%=$key%>",
+              "modifiers": { "mandatory": ["left_<%=$mod%>"] }
+            },
+            "to": [
+              { "shell_<%=$mod%>": "open -a '<%=$app2%>'" },
+              {
+                  "set_variable": {
+                    "name":"k<%=$mod%> pressed",
+                    "value": 0
+                }
+              }
+            ]
+        },
+        {
+            "type": "basic",
+            "conditions": [
+                {
+                  "type": "variable_if",
+                  "name": "k<%=$mod%> pressed",
+                  "value": 1
+                }
+            ],
+            "from": {
+              "key_code": "<%=$key%>",
+              "modifiers": { "mandatory": ["left_<%=$mod%>"] }
+            },
+            "to": [
+              {
+                  "set_variable": {
+                    "name": "k<%=$mod%> pressed",
+                    "value": 2
+                }
+              }
+            ],
+            "to_delayed_action": {
+              "to_if_invoked": [
+                {
+                  "set_variable": {
+                    "name": "k<%=$mod%> pressed",
+                    "value": 0
+                  }
+                },
+                { "shell_<%=$mod%>": "open -a '<%=$app1%>'" }
+              ],
+              "to_if_canceled": [
+                {
+                  "set_variable": {
+                    "name": "k<%=$mod%> pressed",
+                    "value": 0
+                  }
+                }
+              ]
+            }
+        },
+        {
+          "type": "basic",
+          "from": {
+           "key_code": "<%=$key%>",
+            "modifiers": { "mandatory": ["left_<%=$mod%>"] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "k<%=$mod%> pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "k<%=$mod%> pressed",
+                  "value": 0
+                }
+              },
+              {
+
+                 "key_code": "<%=$key%>",
+                  "modifiers": "right_<%=$mod%>"
+              }
+            ]
+          }
+        }
+      ]
+    }

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/sdondley/Karabiner-CompModGenerator/workflows/test/badge.svg)](https://github.com/sdondley/Karabiner-CompModGenerator/actions)
+
 NAME
 ====
 

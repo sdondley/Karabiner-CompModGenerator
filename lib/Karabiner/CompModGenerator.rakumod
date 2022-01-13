@@ -42,8 +42,7 @@ sub get_description($template, *@values) {
 
 sub generate_file(Str:D $config!) is export(:MANDATORY) {
     my @descriptions;
-    for $config.IO.slurp.lines <-> my $l {
-        $l .= trim;
+    for $config.IO.slurp.lines>>.trim -> $l  {
         next if $l ~~ /^\#/ || !$l;
         my @args = $l.split(',');
         die "@args[0] is not an app" if !is_an_app(@args[0]);

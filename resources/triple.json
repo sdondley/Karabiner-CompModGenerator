@@ -1,4 +1,4 @@
-    { "description": "<%=$app1%>/<%=$app2%>, Double/Triple tap cmd-<%=$key%>",
+    { "description": "Activate <%=$app1%>/<%=$app2%>, Double/Triple tap cmd-<%=$key%>",
       "manipulators": [
         {
             "type": "basic",

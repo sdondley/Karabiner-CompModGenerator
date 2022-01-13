@@ -2,9 +2,12 @@ use Test;
 use Karabiner::CompModGenerator;
 
 
-plan 4;
+plan 5;
+
+is 'darwin', VM.osname(), 'running macOS';
 
 "karabiner.json".IO.unlink;
+
 
 # check binary fails without argument
 my $proc = run('bin/kcmg');
@@ -20,8 +23,6 @@ is 'karabiner.json'.IO.e, False, 'ensure output file doesn\'t exist';
 
 # 4
 run 'bin/kcmg', '--', 't/data/karabiner.cfg';
-
-# 5
 is "karabiner.json".IO.f, True, 'creates file';
 "karabiner.json".IO.unlink;
 

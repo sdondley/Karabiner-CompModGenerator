@@ -113,9 +113,12 @@ Follow the L<USAGE> instructions below for more details.
 There are a few easy steps to generating the complex modification files:
 
 1. write the configuration file
+
 2. run the C<kcmg> command, followed by the name of your configuration file, to
 create the json file containing the modifications
+
 3. install the json file into Karabiner-Elements configuration directory
+
 4. open Karabiner-Elements and load the new rules
 
 The json file created by the command in step 2 above will be saved to the same
@@ -126,7 +129,9 @@ C<~/.config/Karabiner/assets/complex_modifications>. Now you can open
 Karabiner-Elements and do the following:
 
 1. click the "Complex Modifications" tab
+
 2. click the "Add rule" button
+
 3. click "Enable" for all the rules or individual rules you wish to use
 
 =head2 Writing a configuration file

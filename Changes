@@ -1,6 +1,8 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+    - improve documentation
+    - allow all modifier keys
 
 0.0.3  2022-01-13T00:35:09-05:00
     - workflow fixes

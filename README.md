@@ -32,17 +32,11 @@ USAGE
 
 There are a few easy steps to generating the complex modification files:
 
-    1. write the configuration file
-    2. run the C<kcmg> command, followed by the name of your configuration
-    file, to create the json file containing the modifications
-    3. install the json file into Karabiner-Elements configuration directory
-    4. open Karabiner-Elements and load the new rules
+1. write the configuration file 2. run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications 3. install the json file into Karabiner-Elements configuration directory 4. open Karabiner-Elements and load the new rules
 
 The json file created by the command in step 2 above will be saved to the same directory your the command from with the same base file name as your configuration file but with a '.json' file extension. Place this file into your Karbiner-Elements configuration directory. By default, this directory is at `~/.config/Karabiner/assets/complex_modifications`. Now you can open Karabiner-Elements and do the following:
 
-    1. click the "Complex Modifications" tab
-    2. click the "Add rule" button
-    3. click "Enable" for all the rules or individual rules you wish to use
+1. click the "Complex Modifications" tab 2. click the "Add rule" button 3. click "Enable" for all the rules or individual rules you wish to use
 
 Writing a configuration file
 ----------------------------
@@ -52,7 +46,8 @@ A configuration is just a simple text file that provides text strings to be inse
 Here is a sample configuration file:
 
     # lines that begin with the '#' character are ignore
-    # first app name,second app name (optional),key,modifier (optional)
+    # The '*' indicates an optional field
+    # 1st app name,2nd app name*,key,modifier*
     Adobe Photoshop 2021,Preview,p,command
     zoom.us,z,option
 
@@ -68,9 +63,11 @@ The next two lines create the following three shortcuts:
 
 Notice the second app name is optional. If only one app name is provided, only one shortcut (double tap) will be generated. If two app names are provided, the first app is assigned to the double tap shortcut and the second app is assigned to the triple tap shortcut.
 
-The "modifier" argument is also optional. It not provided, it defaults to the "command" key.
+The "modifier" argument is also optional. If not provided, it defaults to the "command" key. You may use "option," "control," "shift," or "command" for the modifier.
 
-**IMPORTANT: **Ensure no spaces exists before and after commas.
+**IMPORTANT:** Ensure no spaces exists before and after the commas.
+
+**PRO TIP:** You must type in the exact name of the app. To ensure you get the correct app name, use the Karabiner-EventViewer helper app that was installed along with the Karabiner-Elements apps.
 
 INSTALLATION
 ============

@@ -6,8 +6,8 @@
   "build-depends": [
   ],
   "depends": [
-      "Mac::Applications::List",
-      "Template::Classic"
+    "Mac::Applications::List",
+    "Template::Classic"
   ],
   "description": "Generate complex modifcations for the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS",
   "license": "Artistic-2.0",
@@ -17,15 +17,13 @@
     "Karabiner::CompModGenerator": "lib/Karabiner/CompModGenerator.rakumod"
   },
   "resources": [
-      "double.json",
-      "triple.json"
+    "double.json",
+    "triple.json"
   ],
   "source-url": "https://github.com/sdondley/Karabiner-CompModGenerator.git",
   "tags": [
   ],
   "test-depends": [
-      "Mac::Applications::List",
-      "Template::Classic"
   ],
   "version": "0.0.2"
 }

@@ -2,6 +2,12 @@ Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
 
+0.0.3  2022-01-13T00:35:09-05:00
+    - workflow fixes
+    - adjustments to meta file
+    - test for OS
+    - minor test tweaks
+
 0.0.2  2022-01-12T19:24:04-05:00
     - README fixes
 

@@ -21,7 +21,7 @@ This module generates json files containing complex modifications for use with t
 
 The module makes it exceedingly easy to create and update useful complex modifications. The modification files are generated from templates, so the modifications you can generate are limited by the templates provided by the module, which currently include:
 
-* opening/activiating applications with a modifier key and a double or triple tap of another key
+  * opening/activiating applications with a modifier key and a double or triple tap of another key
 
 More templates will be added in the future as well as a way to create plugins for this module for adding additional templates.
 

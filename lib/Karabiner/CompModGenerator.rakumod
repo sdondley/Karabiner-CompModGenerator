@@ -10,7 +10,7 @@ multi description(
                   Str:D $key! where .chars == 1,
                   Str:D $mod where ($mod ~~ any @modifiers) = 'command' )) {
     my \d = \(|c[0..2], c[3] // 'command');
-    return get_description('resources/triple.json', |d);
+    return get_description(%?RESOURCES<triple.json>, |d);
 }
 
 multi description(
@@ -19,7 +19,7 @@ multi description(
                   Str:D $key! where .chars == 1,
                   Str:D $mod where ($mod ~~ any @modifiers) = 'command' )) {
     my \d = \(|c[0..1], c[2] // 'command');
-    return get_description('resources/double.json', |d);
+    return get_description(%?RESOURCES<double.json>, |d);
 }
 
 sub get_description($template, *@values) {

@@ -1,6 +1,8 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+    - doc tweaks
+    - fix bug with resources not getting found
 
 0.0.6  2022-01-13T09:56:47-05:00
     - fix doc formatting

@@ -1,9 +1,12 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+
+0.0.5  2022-01-13T09:37:19-05:00
     - improve documentation
     - ignore blank lines in config file
     - trim config file lines
+    - improve code style
 
 0.0.4  2022-01-13T00:55:46-05:00
     - improve documentation

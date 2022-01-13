@@ -45,7 +45,7 @@ A configuration is just a simple text file that provides text strings to be inse
 
 Here is a sample configuration file:
 
-    # lines that begin with the '#' character are ignore
+    # lines beginning with the '#' character get ignored
     # The '*' indicates an optional field
     # 1st app name,2nd app name*,key,modifier*
     Adobe Photoshop 2021,Preview,p,command

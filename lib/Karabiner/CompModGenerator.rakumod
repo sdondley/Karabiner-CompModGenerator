@@ -99,14 +99,13 @@ modifications. The modification files are generated from templates, so the
 modifications you can generate are limited by the templates provided by the
 module, which currently include:
 
-* opening/activiating applications with a modifier key and a double or triple
+=item opening/activiating applications with a modifier key and a double or triple
 tap of another key
 
 More templates will be added in the future as well as a way to create plugins
 for this module for adding additional templates.
 
 Follow the L<USAGE> instructions below for more details.
-
 
 =head1 USAGE
 

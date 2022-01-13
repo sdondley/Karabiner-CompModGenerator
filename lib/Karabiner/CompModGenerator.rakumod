@@ -42,7 +42,7 @@ sub get_description($template, *@values) {
 
 sub generate_file(Str:D $config!) is export(:MANDATORY) {
     my @descriptions;
-    for $config.IO.slurp.lines -> $l is rw {
+    for $config.IO.slurp.lines <-> my $l {
         $l .= trim;
         next if $l ~~ /^\#/ || !$l;
         my @args = $l.split(',');

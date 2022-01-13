@@ -1,6 +1,7 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+    - fix doc formatting
 
 0.0.5  2022-01-13T09:37:19-05:00
     - improve documentation

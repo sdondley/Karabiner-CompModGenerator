@@ -1,76 +1,26 @@
 unit module Karabiner::CompModGenerator;
-use Template::Classic;
-use Mac::Applications::List;
 
-my @modifiers = <command option shift control>;
-multi description(
-              |c(
-                  Str:D $app1!,
-                  Str:D $app2!,
-                  Str:D $key! where .chars == 1,
-                  Str:D $mod where ($mod ~~ any @modifiers) = 'command' )) {
-    my \d = \(|c[0..2], c[3] // 'command');
-    return get_description(%?RESOURCES<triple.json>, |d);
-}
 
-multi description(
-              |c(
-                  Str:D $app1!,
-                  Str:D $key! where .chars == 1,
-                  Str:D $mod where ($mod ~~ any @modifiers) = 'command' )) {
-    my \d = \(|c[0..1], c[2] // 'command');
-    return get_description(%?RESOURCES<double.json>, |d);
-}
-
-sub get_description($template, *@values) {
-    my @usage_names;
-    for callframe(1).code.signature.params[0].sub_signature.params.list -> $i {
-        push @usage_names, $i.sigil ~ $i.usage-name;
+sub generate_output(Str:D $config!) is export(:MANDATORY) {
+    if !$config.IO.f {
+        die "file $config does not exist";
     }
+    my $tmpl = basename $config;
+    my $tmpl_module = "Karabiner::Templates::$tmpl";
+    require ::($tmpl_module);
 
-    use MONKEY-SEE-NO-EVAL;
-
-    my &render-list := template (EVAL qq|:({@usage_names.join(',')})|), $template.IO.slurp;
-    my $out = render-list |@values;
-
-    my $return;
-    for $out.list -> $a {
-        $return ~= $a;
-    }
-    return $return
-}
-
-sub generate_file(Str:D $config!) is export(:MANDATORY) {
     my @descriptions;
     for $config.IO.slurp.lines>>.trim -> $l  {
         next if $l ~~ /^\#/ || !$l;
         my @args = $l.split(',');
-        die "@args[0] is not an app" if !is_an_app(@args[0]);
-        die "@args[1] is not an app" if @args[2] && @args[2].Str.chars == 1 && !is_an_app(@args[1]);
-        @descriptions.push(description(|@args).trim-trailing);
+        @descriptions.push(::($tmpl).create(|@args));
     }
     my $out = @descriptions.join(",\n");
-    'karabiner.json'.IO.spurt(get_top() ~ $out ~ get_bot());
+    return ::($tmpl).get_top ~ $out ~ ::($tmpl).get_bot;
 }
 
-sub is_an_app(Str:D $app) {
-    state @apps ||= apps();
-    return $app ~~ any @apps;
-}
-
-sub get_top() {
-    q:to/TOP/;
-{"title": "Activating Apps",
-  "rules": [
-TOP
-}
-
-sub get_bot() {
-    q:to/BOT/;
-
-  ]
-}
-BOT
+sub basename (Str:D $file) is export(:MANDATORY) {
+    return $file.IO.extension('').basename;
 }
 
 
@@ -83,9 +33,9 @@ Karabiner::CompModGenerator - Generate complex modifcations for the L<Karabiner-
 =head1 SYNOPSIS
 
 From the command line:
-=begin code :lang<raku>
+=begin code
 
-kcmg your_config_file.txt
+kcmg ActivateApps.cfg
 
 =end code
 
@@ -93,9 +43,10 @@ kcmg your_config_file.txt
 
 This module generates json files containing complex modifications for use with
 the the L<Karabiner-Elements|https://karabiner-elements.pqrs.org> app on macOS.
+The goal of the module is to make it easier to update and regenerate complex
+modification files without having to edit json files directly.
 
-The module makes it exceedingly easy to create and update useful complex
-modifications. The modification files are generated from templates, so the
+The complex modification files are generated from templates, so the
 modifications you can generate are limited by the templates provided by the
 module, which currently include:
 
@@ -111,7 +62,7 @@ Follow the L<USAGE> instructions below for more details.
 
 There are a few easy steps to generating the complex modification files:
 
-1. write the configuration file
+1. write the configuration file; see L<Configuration Files> for details
 
 2. run the C<kcmg> command, followed by the name of your configuration file, to
 create the json file containing the modifications
@@ -133,13 +84,20 @@ Karabiner-Elements and do the following:
 
 3. click "Enable" for all the rules or individual rules you wish to use
 
-=head2 Writing a configuration file
+=head2 Configuration File
 
-A configuration is just a simple text file that provides text strings to be
-inserted into the templates. You cna use any text editor to create the
-configurations.
+A configuration is just a simple text file that contains the text strings that
+get inserted into the templates.
 
-Here is a sample configuration file:
+You can use any text editor to create the configuration files.
+
+=head3 Naming Your Configuration File
+
+Your configuration files can have any file extention. However, the first part of your file name (aka the base name), must exactly match the name of an installed template module. For example, if you want you configuration file to use the C<Karabiner::Template::ActiveApps> template, name your file something like C<ActiveApps.cfg>.
+
+=head3 Writing Your Configuration File
+
+Here is a sample configuration file for use with the C<ActivateApps> template:
 
 =begin code
 # lines beginning with the '#' character get ignored

@@ -1,0 +1,58 @@
+    { "description": "<%=$tabname%> tab, Double tap <%=$mod%>-<%=$key%>",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "key pressed",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "<%=$key%>",
+            "modifiers": { "mandatory": ["left_<%=$mod%>"] }
+          },
+          "to": [
+            { "shell_command": "/bin/bash -c '~/bin/safari_tabs_activate <%=$tabname%>'" }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "<%=$key%>",
+            "modifiers": { "mandatory": [ "left_<%=$mod%>" ] }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "key pressed",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "key pressed",
+                  "value": 0
+                }
+              },
+              {
+                  "key_code": "<%=$key%>",
+                  "modifiers": "right_<%=$mod%>"
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "key pressed",
+                  "value": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }

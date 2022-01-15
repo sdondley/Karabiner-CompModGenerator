@@ -14,11 +14,15 @@
   "name": "Karabiner::CompModGenerator",
   "perl": "6.d",
   "provides": {
-    "Karabiner::CompModGenerator": "lib/Karabiner/CompModGenerator.rakumod"
+    "Karabiner::CompModGenerator": "lib/Karabiner/CompModGenerator.rakumod",
+    "Karabiner::Template": "lib/Karabiner/Template.rakumod",
+    "Karabiner::Templates::ActivateApps": "lib/Karabiner/Templates/ActivateApps.rakumod",
+    "Karabiner::Templates::SafariTabs": "lib/Karabiner/Templates/SafariTabs.rakumod"
   },
   "resources": [
     "double.json",
-    "triple.json"
+    "triple.json",
+    "safaritabs.json"
   ],
   "source-url": "https://github.com/sdondley/Karabiner-CompModGenerator.git",
   "tags": [

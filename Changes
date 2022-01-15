@@ -2,6 +2,9 @@ Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
 
+0.0.8  2022-01-15T16:10:32-05:00
+    - Move to OO paradigm; major rewrite
+
 0.0.7  2022-01-13T10:33:41-05:00
     - doc tweaks
     - fix bug with resources not getting found

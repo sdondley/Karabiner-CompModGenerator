@@ -10,16 +10,14 @@ SYNOPSIS
 
 From the command line:
 
-```raku
-kcmg your_config_file.txt
-```
+    kcmg ActivateApps.cfg
 
 DESCRIPTION
 ===========
 
-This module generates json files containing complex modifications for use with the the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS.
+This module generates json files containing complex modifications for use with the the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS. The goal of the module is to make it easier to update and regenerate complex modification files without having to edit json files directly.
 
-The module makes it exceedingly easy to create and update useful complex modifications. The modification files are generated from templates, so the modifications you can generate are limited by the templates provided by the module, which currently include:
+The complex modification files are generated from templates, so the modifications you can generate are limited by the templates provided by the module, which currently include:
 
   * opening/activiating applications with a modifier key and a double or triple tap of another key
 
@@ -32,7 +30,7 @@ USAGE
 
 There are a few easy steps to generating the complex modification files:
 
-1. write the configuration file
+1. write the configuration file; see [Configuration Files](Configuration Files) for details
 
 2. run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
 
@@ -48,12 +46,20 @@ The json file created by the command in step 2 above will be saved to the same d
 
 3. click "Enable" for all the rules or individual rules you wish to use
 
-Writing a configuration file
-----------------------------
+Configuration File
+------------------
 
-A configuration is just a simple text file that provides text strings to be inserted into the templates. You cna use any text editor to create the configurations.
+A configuration is just a simple text file that contains the text strings that get inserted into the templates.
 
-Here is a sample configuration file:
+You can use any text editor to create the configuration files.
+
+### Naming Your Configuration File
+
+Your configuration files can have any file extention. However, the first part of your file name (aka the base name), must exactly match the name of an installed template module. For example, if you want you configuration file to use the `Karabiner::Template::ActiveApps` template, name your file something like `ActiveApps.cfg`.
+
+### Writing Your Configuration File
+
+Here is a sample configuration file for use with the `ActivateApps` template:
 
     # lines beginning with the '#' character get ignored
     # The '*' indicates an optional field

@@ -1,0 +1,16 @@
+use Test;
+use Karabiner::Templates::ActivateApps;
+
+plan 1;
+my $template;
+lives-ok {
+    $template = ActivateApps.create('Safari', 's', 'option');
+    $template = ActivateApps.create('Mail', 's');
+    $template = ActivateApps.create('Mail', 'Safari', 's');
+    $template = ActivateApps.create('Safari', 'Mail', 's', 'shift');
+}, 'generates files without dying';
+
+
+done-testing;
+
+

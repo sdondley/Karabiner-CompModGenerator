@@ -1,0 +1,14 @@
+use Test;
+use Karabiner::Templates::SafariTabs;
+
+plan 1;
+my $template;
+lives-ok {
+    $template = SafariTabs.create('Grammarly', '1', 'g', 'option');
+    $template = SafariTabs.create('Amazon', '2', 'a');
+}, 'generates files without dying';
+
+
+done-testing;
+
+

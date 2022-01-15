@@ -3,12 +3,7 @@ use lib 'lib';
 use Karabiner::CompModGenerator;
 
 sub MAIN($config_file) {
-    if !$config_file.IO.f {
-        die "file $config_file does not exist";
-    }
+    my $file_out = basename $config_file;
 
-    # strip extension
-    generate_file($config_file);
-    my $out = $config_file.IO.extension('').basename ~ '.json';
-    
+    "$file_out.json".IO.spurt(generate_output($config_file));
 }

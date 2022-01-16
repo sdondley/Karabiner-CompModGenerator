@@ -5,7 +5,7 @@ unit class SafariTabs is Template;
 my $tmpl = 'safaritabs.json';
 
 has Str $.tabname;
-has Str $.tabnum where *.Numeric;
+has Str $.tabnum where *.Num > 0;
 
 
 multi method create(|c($tabname, $tabnum, $key)) {

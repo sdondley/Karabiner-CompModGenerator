@@ -1,2 +1,4 @@
 .precomp/
 /Karabiner-CompModGenerator-*
+/*.json
+/*.cfg

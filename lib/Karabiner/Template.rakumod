@@ -8,16 +8,16 @@ method description_generator($tmpl) {
     use MONKEY-SEE-NO-EVAL;
     my @values;
     my @usage_names;
-    for self.^attributes -> $a {
-        my $name = $a.name.substr(2);
-        my $value = EVAL "self.$name";
-        next if !$value;
-        push @values, $value;
-        push @usage_names, '$' ~ $name;
-    }
 
-    my &render-list := template (EVAL qq|:({@usage_names.join(',')})|), %?RESOURCES{$tmpl}.slurp;
-    my $out = render-list |@values;
+    my @attribute_data = self.^attributes».name».substr(2).map: { $_, self."$_"() };
+    for @attribute_data -> $pair {
+        push @usage_names, $pair[0];
+        push @values, $pair[1];
+    }
+    my @params = @usage_names.map: { Parameter.new(:name('$' ~ $_)) };
+
+    my &generate-description := template Signature.new(:@params, :returns(Seq)), %?RESOURCES{$tmpl}.slurp;
+    my $out = generate-description(|@values);
 
     my $output;
     for $out.list -> $a {

@@ -2,6 +2,12 @@ Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
 
+0.0.12  2022-01-16T05:34:12-05:00
+    - misc. code refinements
+    - fix broken links in docs
+    - remove file cruft
+    - ensure tabnum attribute in SafariTabs is Numeric
+
 0.0.11  2022-01-15T19:22:46-05:00
     - add script for changing tabs
     - fix bug in template

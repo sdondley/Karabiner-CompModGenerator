@@ -23,14 +23,14 @@ The complex modification files are generated from templates, so the modification
 
 More templates will be added in the future as well as a way to create plugins for this module for adding additional templates.
 
-Follow the [USAGE](USAGE) instructions below for more details.
+Follow the [USAGE](#USAGE) instructions below for more details.
 
 USAGE
 =====
 
 There are a few easy steps to generating the complex modification files:
 
-1. write the configuration file; see [Configuration Files](Configuration Files) for details
+1. write the configuration file; see [Configuration Files](#Configuration Files) for details
 
 2. run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
 
@@ -100,7 +100,7 @@ For other options for installing Raku, see [read this page.](https://course.raku
 
 Once Raku is installed, install the module with: `zef install Karabiner::CompModGenerator`
 
-Now follow the [USAGE](USAGE) instructions below to learn how to generate files.
+Now follow the [USAGE](#USAGE) instructions below to learn how to generate files.
 
 AUTHOR
 ======

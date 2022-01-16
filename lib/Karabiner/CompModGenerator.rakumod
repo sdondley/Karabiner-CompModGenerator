@@ -23,7 +23,6 @@ sub basename (Str:D $file) is export(:MANDATORY) {
     return $file.IO.extension('').basename;
 }
 
-
 =begin pod
 
 =head1 NAME

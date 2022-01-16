@@ -49,8 +49,8 @@ The complex modification files are generated from templates, so the
 modifications you can generate are limited by the templates provided by the
 module, which currently include:
 
-=item opening/activiating applications with a modifier key and a double or triple
-tap of another key
+=item ActivateApps – opening/activiating applications with a modifier key while double or triple tapping another key
+=item SafariTabs – activating Safari tabs with a modifier key and a double tapactivating Safari tabs with a modifier key while double tapping another key
 
 More templates will be added in the future as well as a way to create plugins
 for this module for adding additional templates.

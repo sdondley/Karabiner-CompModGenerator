@@ -1,6 +1,8 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+
+0.0.11  2022-01-15T19:22:46-05:00
     - add script for changing tabs
     - fix bug in template
 

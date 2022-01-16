@@ -14,7 +14,7 @@
             "modifiers": { "mandatory": ["left_<%=$mod%>"] }
           },
           "to": [
-            { "shell_command": "/bin/bash -c '~/bin/safari_tabs_activate <%=$tabname%>'" }
+            { "shell_command": "/bin/bash -c 'kcmg_safari_tabs_activate <%=$tabname%>'" }
           ]
         },
         {

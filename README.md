@@ -15,15 +15,15 @@ From the command line:
 DESCRIPTION
 ===========
 
-This module generates json files containing complex modifications for use with the the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS. The goal of the module is to make it easier to update and regenerate complex modification files without having to edit json files directly.
+This module generates json files containing "complex modifications" for use with the the [Karabiner-Elements](https://karabiner-elements.pqrs.org) app on macOS. The goal of the module is to make it easier to create and regenerate complex modification files and avoid the headache of editing json files directly.
 
 The complex modification files are generated from templates, so the modifications you can generate are limited by the templates provided by the module, which currently include:
 
-  * **ActivateApps** – opening/activiating applications with a modifier key while double or triple tapping another key
+  * **ActivateApps** – opens/activiates applications by pressing a modifier key while double or triple tapping another key
 
-  * **SafariTabs** – activate Safari and specific tab with a modifier key and a double tap (ideally suited for use with Safari's "pinned" tab feature)
+  * **SafariTabs** – activate Safari and a specific tab by pressing a modifier key and a double tap (best used in conjunction with Safari's "pinned" tab feature)
 
-More templates will be added in the future. And feel welcome to contribute your own template modules to extend `Karabiner::CompModGenerator` capabilities.
+More templates will be added in the future. Feel welcome to contribute your own template modules to extend `Karabiner::CompModGenerator`'s capabilities.
 
 Follow the [USAGE](#USAGE) instructions below for more details.
 
@@ -32,15 +32,17 @@ USAGE
 
 There are a few easy steps to generating the complex modification files:
 
-1. write the configuration file; see [Configuration File](#Configuration File) for details
+1. create a configuration file; see [Configuration File](#Configuration File) for details
 
-2. run the `kcmg` command, followed by the name of your configuration file, to create the json file containing the modifications
+2. run the `kcmg` command, followed by the path to your configuration file, to create the json file containing the complex modifications
 
 3. copy the json file into Karabiner-Elements configuration directory on your drive
 
 4. open Karabiner-Elements and load the new rules
 
-The json file created by the command in step 2 above gets saved to the same directory you ran the command from with the same base file name as your configuration file but with a '.json' file extension. Place this file into your Karbiner-Elements configuration directory. By default, this directory is at `~/.config/Karabiner/assets/complex_modifications`. Now you can open Karabiner-Elements and do the following:
+The json file created by in step 2 above gets saved to the same directory you ran the command from with the same base file name as your configuration file but with a '.json' file extension. Place this file into your Karbiner-Elements configuration directory. By default, this directory is at `~/.config/Karabiner/assets/complex_modifications`.
+
+Now, with the new json file in place, open Karabiner-Elements and do the following:
 
 1. click the "Complex Modifications" tab
 
@@ -51,7 +53,7 @@ The json file created by the command in step 2 above gets saved to the same dire
 Configuration File
 ------------------
 
-A configuration file is a text file that contains the comma separated strings that get inserted into the template files. Each line will insert a new "description" rule in the json file that's generated. 
+A configuration file is a text file that contains the comma separated values that get inserted into the template files. Each line inserts a new "description" rule into the json file that's output by the `kcmg` command. 
 
 You can use any text editor to create the configuration files.
 

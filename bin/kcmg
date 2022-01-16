@@ -2,6 +2,7 @@
 use lib 'lib';
 use Karabiner::CompModGenerator;
 
+# TODO: add option for listing available templates
 sub MAIN($config_file) {
     my $file_out = basename $config_file;
 

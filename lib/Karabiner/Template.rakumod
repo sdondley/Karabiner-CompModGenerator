@@ -1,5 +1,4 @@
 unit class Template;
-use Mac::Applications::List;
 use Template::Classic;
 
 has Str $.key where .chars == 1;

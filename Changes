@@ -2,6 +2,9 @@ Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
 
+0.0.13  2022-01-16T06:01:50-05:00
+    - update docs to describe new SafariTabs template
+
 0.0.12  2022-01-16T05:34:12-05:00
     - misc. code refinements
     - fix broken links in docs

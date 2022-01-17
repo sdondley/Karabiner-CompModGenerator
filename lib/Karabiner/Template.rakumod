@@ -4,10 +4,8 @@ use Template::Classic;
 has Str $.key where .chars == 1;
 has Str $.mod where (* ~~ any [ 'command', 'option', 'shift', 'control' ]) = 'command';
 
-method description_generator($tmpl) {
-    use MONKEY-SEE-NO-EVAL;
-    my @values;
-    my @usage_names;
+method rule_generator($tmpl) {
+    my (@values, @usage_names);
 
     my @attribute_data = self.^attributes».name».substr(2).map: { $_, self."$_"() };
     for @attribute_data -> $pair {
@@ -16,14 +14,11 @@ method description_generator($tmpl) {
     }
     my @params = @usage_names.map: { Parameter.new(:name('$' ~ $_)) };
 
-    my &generate-description := template Signature.new(:@params, :returns(Seq)), %?RESOURCES{$tmpl}.slurp;
-    my $out = generate-description(|@values);
+    my &generate-rule := template Signature.new(:@params,
+                                  :returns(Seq)),
+                                  %?RESOURCES{$tmpl}.slurp;
 
-    my $output;
-    for $out.list -> $a {
-        $output ~= $a;
-    }
-    return $output.trim-trailing;
+    return generate-rule(|@values).eager.join.trim-trailing;
 }
 
 method get_bot() {

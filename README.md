@@ -27,6 +27,27 @@ More templates will be added in the future. Feel welcome to contribute your own 
 
 Follow the [USAGE](#USAGE) instructions below for more details.
 
+INSTALLATION
+============
+
+Assuming Raku and zef is already installed, install the module with:
+
+`zef install Karabiner::CompModGenerator`
+
+Once you get the module installed follow the [USAGE](#USAGE) instructions to learn how to generate new rules for use with Karabiner-Elements.
+
+If you don't have Raku with zef installed yet, it's easiest to install them both with homebrew if you already have brew installed:
+
+`brew install rakudo-star`
+
+If you don't have brew installed, install it with:
+
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+Note, however, that the homebrew install may be months out of date.
+
+To ensure you get the absolute latest version of Raku, [see this page](https://course.raku.org/essentials/how-to-install-rakudo/) for other installation options. Whatever method you choose to install Raku, just be sure the `zef` command gets installed and is working on your machine as well.
+
 USAGE
 =====
 
@@ -53,28 +74,29 @@ Now, with the new json file in place, open Karabiner-Elements and do the followi
 Configuration File
 ------------------
 
-A configuration file is a text file that contains the comma separated values that get inserted into the template files. Each line inserts a new "description" rule into the json file that's output by the `kcmg` command. 
+A configuration file is a text file that contains the comma separated values that get inserted into a template file. Each line in the file outputs a new "description" rule that ends up in json file that's output by the `kcmg` command. An associated template module, as determined by the name of the configuration file, contains the logic for processing the configuration file.
 
 You can use any text editor to create the configuration files.
 
 ### Naming Your Configuration File
 
-Your configuration files can have any file extention. However, the first part of your file name (aka the base name), **must exactly match the name of an installed template module.** For example, if you want you configuration file to use the `Karabiner::Template::ActivateApps` template, name your file something like `ActivateApps.cfg` or `ActivateApps.txt`.
+A configuration file can have any file extention. However, the first part of your file name (aka the base name), **must exactly match the name of an installed template module.** For example, if you want your configuration file to use the `Karabiner::Template::ActivateApps` template, name your file something like `ActivateApps.cfg` or `ActivateApps.txt`.
 
 ### Writing Your Configuration File
 
 Here is a sample configuration file for use with the `ActivateApps` template:
 
+    # Filename: ActivateApps.cfg
     # lines beginning with the '#' character get ignored
     # The '*' indicates an optional field
-    # 1st app name,2nd app name*,key,modifier*
+    # 1st app name, 2nd app name*, key, modifier*
 
-    Adobe Photoshop 2021,Preview,p,command
-    zoom.us,z,option
+    Adobe Photoshop 2021, Preview, p, command
+    zoom.us, z, option
 
-The first three lines beginning with the '#' sign are are comments and are ignored. The blank line is also skipped.
+The first four lines beginning with the '#' sign are are comments and are ignored. The blank line is also skipped.
 
-The next two lines generate the necessary json for the following three shortcuts:
+The next two lines tell the template module what data to insert into a pre-defined json template file to create the following three shortcuts:
 
   * assigns ⌘-p-p (hold down command key and double tap "p") to open Adobe Photoshop
 
@@ -84,30 +106,9 @@ The next two lines generate the necessary json for the following three shortcuts
 
 Notice the second app name is optional. If only one app name is provided, only one shortcut (a double tap) will be generated. If two app names are provided, the first app is assigned to the double tap shortcut and the second app is assigned to the triple tap shortcut.
 
-The "modifier" argument is also optional. If not provided, it defaults to the "command" key. You may use "option," "control," "shift," or "command" for the modifier key.
+The "modifier" argument is also optional. If not provided, it defaults to the "command" key when using the `ActivateApps` template. You may use "option," "control," "shift," or "command" for the modifier key.
 
-**PRO TIP:** The app name in the configuration file must exactly match the name of the app as installed on your Mac. The name can often differ substantially than the common name of the app. For example, the app name for "Zoom" is "zoom.us". To ensure you get the correct app name, you can use the [Mac::Application::List](Mac::Application::List) module installed with this module to list out the apps installed on your machine. Alternatively, use the Karabiner-EventViewer application. The module will warn you if it does not recognize the name of an app in yur configuration file.
-
-INSTALLATION
-============
-
-Assuming Raku and zef is installed, install the module with:
-
-`zef install Karabiner::CompModGenerator`
-
-If you don't have Raku installed, it's easiest to install with homebrew if you already have brew installed:
-
-`brew install rakudo-star`
-
-If you don't have brew installed, install it with:
-
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-
-Note, however, that the homebrew install may be months out of date.
-
-To ensure you get the absolute latest version of Raku, [see this page](https://course.raku.org/essentials/how-to-install-rakudo/) for other installation options. Whatever method you choose to install Raku, just be sure the `zef` command gets installed and is working on your machine as well.
-
-Once installed follow the [USAGE](#USAGE) instructions to learn how to generate new rules for use with Karabiner-Elements.
+**PRO TIP:** The app name in the configuration file must exactly match the name of the offical app name as installed on your Mac. The official name often differ substantially than the app's common name. For example, the app name for "Zoom" is "zoom.us". To ensure you app name correct, use the [Mac::Application::List](Mac::Application::List) module installed with this module to list out the apps installed on your machine. Alternatively, use the Karabiner-EventViewer application. The module will warn you if it does not recognize the name of an app in yur configuration file.
 
 AUTHOR
 ======

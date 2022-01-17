@@ -9,6 +9,7 @@ sub generate_output(Str:D $config!) is export(:MANDATORY) {
     my $tmpl_module = "Karabiner::Templates::$tmpl";
     require ::($tmpl_module);
 
+    # process the lines in the config file
     my @descriptions;
     for $config.IO.slurp.lines>>.trim -> $l  {
         next if $l ~~ /^\#/ || !$l;

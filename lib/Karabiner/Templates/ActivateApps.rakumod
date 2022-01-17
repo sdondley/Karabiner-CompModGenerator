@@ -16,12 +16,12 @@ multi method create($app1, $key, $mod) {
         return;
     }
     my $a = self.bless(:$app1, :$key, :$mod);
-    $a.description_generator($tmpl);
+    $a.rule_generator($tmpl);
 }
 multi method create($app1, $app2, $key, $mod) {
     $tmpl = 'triple.json';
     my $a = self.bless(:$app1, :$app2, :$key, :$mod);
-    $a.description_generator($tmpl);
+    $a.rule_generator($tmpl);
 
 }
 

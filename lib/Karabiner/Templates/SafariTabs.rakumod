@@ -13,7 +13,7 @@ multi method create(|c($tabname, $tabnum, $key)) {
 }
 multi method create($tabname, $tabnum, $key, $mod) {
     my $a = self.bless(:$tabname, :$tabnum, :$key, :$mod);
-    $a.description_generator($tmpl);
+    $a.rule_generator($tmpl);
 }
 
 method get_top() {

@@ -14,6 +14,7 @@ multi method create($app1, $key, $mod) {
     if $mod.chars == 1 {
         return self.create($app1, $key, $mod, 'command');
     }
+    $tmpl = 'double.json';
     my $a = self.bless(:$app1, :$key, :$mod);
     $a.rule_generator($tmpl);
 }

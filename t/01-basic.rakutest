@@ -2,7 +2,7 @@ use Test;
 use Karabiner::CompModGenerator;
 
 
-plan 4;
+plan 5;
 
 
 "ActivateApps.json".IO.unlink;
@@ -18,9 +18,14 @@ isnt (run 'bin/kcmg', '--', 't/blah.cfg').exitcode, 0, 'detects non-existent con
 # 3
 run 'bin/kcmg', '--', 't/data/ActivateApps.cfg';
 is "ActivateApps.json".IO.f, True, 'creates output file';
-"ActivateApps.json".IO.unlink;
 
 # 4
+my $file_contents = "ActivateApps.json".IO.slurp;
+is $file_contents ~~ /Messenger/, 'Messenger', 'puts content into file';
+
+"ActivateApps.json".IO.unlink;
+
+# 5
 dies-ok { run 'bin/kcmg', '--', 't/data/NoTemplate.cfg' }, 'detect when template does not exist and dies.';
 
 

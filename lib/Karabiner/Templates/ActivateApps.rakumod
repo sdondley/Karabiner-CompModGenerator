@@ -12,8 +12,7 @@ multi method create(|c($app1, $key)) {
 }
 multi method create($app1, $key, $mod) {
     if $mod.chars == 1 {
-        self.create($app1, $key, $mod, 'command');
-        return;
+        return self.create($app1, $key, $mod, 'command');
     }
     my $a = self.bless(:$app1, :$key, :$mod);
     $a.rule_generator($tmpl);
@@ -22,7 +21,6 @@ multi method create($app1, $app2, $key, $mod) {
     $tmpl = 'triple.json';
     my $a = self.bless(:$app1, :$app2, :$key, :$mod);
     $a.rule_generator($tmpl);
-
 }
 
 method get_top() {

@@ -21,7 +21,7 @@ is "ActivateApps.json".IO.f, True, 'creates output file';
 
 # 4
 my $file_contents = "ActivateApps.json".IO.slurp;
-is $file_contents ~~ /Messenger/, 'Messenger', 'puts content into file';
+is $file_contents ~~ /command/, 'command', 'puts content into file';
 
 "ActivateApps.json".IO.unlink;
 

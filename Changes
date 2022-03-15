@@ -1,6 +1,7 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+    - fix bug for app,app,key config lines for ActivateApps template
 
 0.0.18  2022-01-17T11:52:16-05:00
     - streamline code

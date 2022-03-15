@@ -1,6 +1,8 @@
 Revision history for Karabiner-CompModGenerator
 
 {{$NEXT}}
+
+0.0.20  2022-03-15T06:05:28-04:00
     - fix another bug that occurred when two arg config line followed 3 arg
 
 0.0.19  2022-03-15T04:53:53-04:00

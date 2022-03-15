@@ -74,7 +74,7 @@ Now, with the new json file in place, open Karabiner-Elements and do the followi
 Configuration File
 ------------------
 
-A configuration file is a text file that contains the comma separated values that get inserted into a template file. Each line in the file outputs a new "description" rule that ends up in json file that's output by the `kcmg` command. An associated template module, as determined by the name of the configuration file, contains the logic for processing the configuration file.
+A configuration file is a text file that contains the comma separated values that get inserted into a template file. Each line in the file outputs a new rule that ends up in json file that's output by the `kcmg` command. An associated template module, as determined by the name of the configuration file, contains the logic for processing the configuration file.
 
 You can use any text editor to create the configuration files.
 
@@ -88,15 +88,19 @@ Here is a sample configuration file for use with the `ActivateApps` template:
 
     # Filename: ActivateApps.cfg
     # lines beginning with the '#' character get ignored
-    # The '*' indicates an optional field
+
+    # LINE FORMAT:
     # 1st app name, 2nd app name*, key, modifier*
+    # The '*' indicates an optional field
 
     Adobe Photoshop 2021, Preview, p, command
     zoom.us, z, option
 
-The first four lines beginning with the '#' sign are are comments and are ignored. The blank line is also skipped.
+Blank lines and lines beginning with the '#' sign are are comments and are ignored.
 
-The next two lines tell the template module what data to insert into a pre-defined json template file to create the following three shortcuts:
+The uncommented lines contain the data that the template inserts into a pre-defined json template file. Each piece of data is delimited with a comma. Spaces before and after a comma are ignored.
+
+The sample configuration file above creates the following three shortcuts:
 
   * assigns ⌘-p-p (hold down command key and double tap "p") to open Adobe Photoshop
 
@@ -108,7 +112,7 @@ Notice the second app name is optional. If only one app name is provided, only o
 
 The "modifier" argument is also optional. If not provided, it defaults to the "command" key when using the `ActivateApps` template. You may use "option," "control," "shift," or "command" for the modifier key.
 
-**PRO TIP:** The app name in the configuration file must exactly match the name of the offical app name as installed on your Mac. The official name often differ substantially than the app's common name. For example, the app name for "Zoom" is "zoom.us". To ensure you app name correct, use the [Mac::Application::List](Mac::Application::List) module installed with this module to list out the apps installed on your machine. Alternatively, use the Karabiner-EventViewer application. The module will warn you if it does not recognize the name of an app in yur configuration file.
+**PRO TIP for ActiveApps template:** The app name in the configuration file must exactly match the name of the offical app name as installed on your Mac. The official name can differ substantially than the app's common name. For example, the app name for "Zoom" is "zoom.us". To ensure you app name correct, use the [Mac::Application::List](Mac::Application::List) module installed with this module to list out the apps installed on your machine. Alternatively, use the Karabiner-EventViewer application. The module will warn you if it does not recognize the name of an app in your configuration file.
 
 AUTHOR
 ======
